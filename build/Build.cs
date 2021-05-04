@@ -1,5 +1,6 @@
 using Nuke.Common;
 using Nuke.Common.CI;
+using Nuke.Common.CI.AppVeyor;
 using Nuke.Common.Execution;
 using Nuke.Common.Git;
 using Nuke.Common.IO;
@@ -13,6 +14,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
+[AppVeyor(AppVeyorImage.VisualStudio2019, BranchesOnly = new[] { "master", "dev" }, InvokedTargets = new[] { nameof(Test) })]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
