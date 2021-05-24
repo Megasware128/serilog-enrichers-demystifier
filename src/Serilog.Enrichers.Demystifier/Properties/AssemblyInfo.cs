@@ -6,4 +6,4 @@ using System.Runtime.CompilerServices;
 
 [assembly: CLSCompliant(true)]
 
-[assembly: InternalsVisibleTo("Serilog.Enrichers.Demystify.Tests")]
+[assembly: InternalsVisibleTo("Serilog.Enrichers.Demystifier.Tests")]

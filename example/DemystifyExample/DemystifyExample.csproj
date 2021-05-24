@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Serilog.Enrichers.Demystify\Serilog.Enrichers.Demystify.csproj" />
+    <ProjectReference Include="..\..\src\Serilog.Enrichers.Demystifier\Serilog.Enrichers.Demystifier.csproj" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
   </ItemGroup>
 

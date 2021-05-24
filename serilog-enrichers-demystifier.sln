@@ -14,9 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{791D4267-0D6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{290A2775-7CA0-4F81-9DDC-32E28C3A7565}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Enrichers.Demystify.Tests", "test\Serilog.Enrichers.Demystify.Tests\Serilog.Enrichers.Demystify.Tests.csproj", "{B11B911D-977A-42CE-900A-596CF59F6FFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Enrichers.Demystifier.Tests", "test\Serilog.Enrichers.Demystifier.Tests\Serilog.Enrichers.Demystifier.Tests.csproj", "{B11B911D-977A-42CE-900A-596CF59F6FFA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Enrichers.Demystify", "src\Serilog.Enrichers.Demystify\Serilog.Enrichers.Demystify.csproj", "{07ED0B3C-158B-4453-8ADE-AE3AF3A1E24C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Enrichers.Demystifier", "src\Serilog.Enrichers.Demystifier\Serilog.Enrichers.Demystifier.csproj", "{07ED0B3C-158B-4453-8ADE-AE3AF3A1E24C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{2399C85B-D741-4812-9DCE-755AA75BC444}"
 EndProject

@@ -6,12 +6,12 @@
     <Authors>Serilog Contributors</Authors>
     <TargetFrameworks>netstandard2.0;net45;net5.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <AssemblyName>Serilog.Enrichers.Demystify</AssemblyName>
-    <PackageId>Serilog.Enrichers.Demystify</PackageId>
+    <AssemblyName>Serilog.Enrichers.Demystifier</AssemblyName>
+    <PackageId>Serilog.Enrichers.Demystifier</PackageId>
     <RootNamespace>Serilog</RootNamespace>
     <PackageTags>serilog;demystifier</PackageTags>
     <PackageIcon>serilog-community-nuget.png</PackageIcon>
-    <PackageProject>https://github.com/Megasware128/serilog-enrichers-demystify</PackageProject>
+    <PackageProject>https://github.com/Megasware128/serilog-enrichers-demystifier</PackageProject>
     <PackageLicense>http://www.apache.org/licenses/LICENSE-2.0</PackageLicense>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>

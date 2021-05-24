@@ -1,4 +1,4 @@
 {
   "$schema": "./build.schema.json",
-  "Solution": "serilog-enrichers-demystify.sln"
+  "Solution": "serilog-enrichers-demystifier.sln"
 }

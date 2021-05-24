@@ -76,7 +76,7 @@ class Build : NukeBuild
         .Executes(() =>
         {
             DotNetTest(s => s
-                .SetProjectFile(Solution.test.Serilog_Enrichers_Demystify_Tests)
+                .SetProjectFile(Solution.test.Serilog_Enrichers_Demystifier_Tests)
                 .SetConfiguration(Configuration)
                 .EnableNoBuild());
         });
@@ -87,7 +87,7 @@ class Build : NukeBuild
         .Executes(() =>
         {
             DotNetPack(s => s
-                .SetProject(Solution.src.Serilog_Enrichers_Demystify)
+                .SetProject(Solution.src.Serilog_Enrichers_Demystifier)
                 .SetConfiguration(Configuration)
                 .SetVersion(GitVersion.NuGetVersion)
                 .SetOutputDirectory(ArtifactsDirectory)

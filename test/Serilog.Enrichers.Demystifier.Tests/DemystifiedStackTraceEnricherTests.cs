@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Serilog.Events;
 using Xunit;
 
-namespace Serilog.Enrichers.Demystify.Tests
+namespace Serilog.Enrichers.Demystifier.Tests
 {
     public class DemystifiedStackTraceEnricherTests
     {
@@ -22,7 +22,7 @@ namespace Serilog.Enrichers.Demystify.Tests
             enricher.Enrich(le, null);
 
             var sts = le.Exception.StackTrace;
-            Assert.Contains("async Task<Exception> Serilog.Enrichers.Demystify.Tests.DemystifiedStackTraceEnricherTests.ObtainException()", sts);
+            Assert.Contains("async Task<Exception> Serilog.Enrichers.Demystifier.Tests.DemystifiedStackTraceEnricherTests.ObtainException()", sts);
         }
 
         [Fact]

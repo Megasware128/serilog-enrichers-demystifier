@@ -2,7 +2,7 @@
 using Serilog.Core;
 using Serilog.Events;
 
-namespace Serilog.Enrichers.Demystify
+namespace Serilog.Enrichers.Demystifier
 {
     class DemystifiedStackTraceEnricher : ILogEventEnricher
     {

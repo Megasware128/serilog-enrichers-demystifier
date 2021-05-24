@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.1;net46</TargetFrameworks>
-    <AssemblyName>Serilog.Enrichers.Demystify.Tests</AssemblyName>
-    <PackageId>Serilog.Enrichers.Demystify.Tests</PackageId>
+    <AssemblyName>Serilog.Enrichers.Demystifier.Tests</AssemblyName>
+    <PackageId>Serilog.Enrichers.Demystifier.Tests</PackageId>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Serilog.Enrichers.Demystify\Serilog.Enrichers.Demystify.csproj" />
+    <ProjectReference Include="..\..\src\Serilog.Enrichers.Demystifier\Serilog.Enrichers.Demystifier.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />

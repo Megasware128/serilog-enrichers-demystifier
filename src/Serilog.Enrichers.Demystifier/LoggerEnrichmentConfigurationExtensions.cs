@@ -1,5 +1,5 @@
 ﻿using Serilog.Configuration;
-using Serilog.Enrichers.Demystify;
+using Serilog.Enrichers.Demystifier;
 
 namespace Serilog
 {
