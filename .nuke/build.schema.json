@@ -43,6 +43,12 @@
           "type": "boolean",
           "description": "Disables displaying the NUKE logo"
         },
+        "NuGetApiKey": {
+          "type": "string"
+        },
+        "NuGetSource": {
+          "type": "string"
+        },
         "Plan": {
           "type": "boolean",
           "description": "Shows the execution plan (HTML)"
@@ -67,6 +73,7 @@
               "Clean",
               "Compile",
               "Pack",
+              "Publish",
               "Restore",
               "Test"
             ]
@@ -85,6 +92,7 @@
               "Clean",
               "Compile",
               "Pack",
+              "Publish",
               "Restore",
               "Test"
             ]
