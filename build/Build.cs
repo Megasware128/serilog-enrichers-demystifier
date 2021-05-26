@@ -15,11 +15,11 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
-[AppVeyor(AppVeyorImage.VisualStudio2019, BranchesOnly = new[] { "master", "dev" }, InvokedTargets = new[] { nameof(Test) })]
+[AppVeyor(AppVeyorImage.VisualStudio2019, BranchesOnly = new[] { "main", "dev" }, InvokedTargets = new[] { nameof(Test) })]
 [GitHubActions("ci",
                 GitHubActionsImage.WindowsLatest,
                 InvokedTargets = new[] { nameof(Test), nameof(Pack) },
-                OnPushBranches = new[] { "master", "dev" },
+                OnPushBranches = new[] { "main", "dev" },
                 PublishArtifacts = true)]
 [GitHubActions("publish", GitHubActionsImage.UbuntuLatest, InvokedTargets = new[] { nameof(Pack), nameof(Publish) }, OnPushTags = new[] { "v*" }, ImportSecrets = new[] { nameof(NuGetApiKey) })]
 class Build : NukeBuild

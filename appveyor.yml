@@ -19,7 +19,7 @@ image:
 
 branches:
   only:
-    - master
+    - main
     - dev
 
 build_script:
