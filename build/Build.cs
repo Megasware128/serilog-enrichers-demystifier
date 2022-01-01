@@ -6,6 +6,7 @@ using Nuke.Common.Execution;
 using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
+using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Utilities.Collections;
@@ -41,6 +42,10 @@ class Build : NukeBuild
     [Solution(GenerateProjects = true)] readonly Solution Solution;
     [GitRepository] readonly GitRepository GitRepository;
     [GitVersion(Framework = "net5.0")] readonly GitVersion GitVersion;
+
+    [PathExecutable("nuke.exe")] readonly Tool Nuke;
+    [PackageExecutable("dotnet-outdated-tool", "dotnet-outdated.dll", Framework = "net6.0")] readonly Tool DotNetOutdated;
+    [PackageExecutable("upgrade-assistant", "Microsoft.DotNet.UpgradeAssistant.Cli.dll", Framework = "net6.0")] readonly Tool UpgradeAssistant;
 
     AbsolutePath SourceDirectory => RootDirectory / "src";
     AbsolutePath TestsDirectory => RootDirectory / "test";
@@ -109,5 +114,13 @@ class Build : NukeBuild
                 .SetTargetPath(ArtifactsDirectory / "*.nupkg")
                 .SetSource(NuGetSource)
                 .SetApiKey(NuGetApiKey));
+        });
+
+    Target Update => _ => _
+        .Executes(() =>
+        {
+            Nuke(":update");
+            UpgradeAssistant($"upgrade {Solution} -e * --skip-backup --non-interactive");
+            DotNetOutdated("-u");
         });
 }
