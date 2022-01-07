@@ -44,7 +44,7 @@ class Build : NukeBuild
     [GitVersion(Framework = "net5.0")] readonly GitVersion GitVersion;
 
     [PathExecutable("nuke.exe")] readonly Tool Nuke;
-    [PackageExecutable("dotnet-outdated-tool", "dotnet-outdated.dll", Framework = "net6.0")] readonly Tool DotNetOutdated;
+    [PackageExecutable("NuKeeper", "NuKeeper.dll", Framework = "net5.0")] readonly Tool NuKeeper;
     [PackageExecutable("upgrade-assistant", "Microsoft.DotNet.UpgradeAssistant.Cli.dll", Framework = "net6.0")] readonly Tool UpgradeAssistant;
 
     AbsolutePath SourceDirectory => RootDirectory / "src";
@@ -121,6 +121,6 @@ class Build : NukeBuild
         {
             Nuke(":update");
             UpgradeAssistant($"upgrade {Solution} -e * --skip-backup --non-interactive");
-            DotNetOutdated("-u");
+            NuKeeper("update -m 10 -a 0");
         });
 }
