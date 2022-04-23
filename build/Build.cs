@@ -19,6 +19,8 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 [AppVeyor(AppVeyorImage.VisualStudio2019, BranchesOnly = new[] { "master", "dev" }, InvokedTargets = new[] { nameof(Test) })]
 [GitHubActions("ci",
                 GitHubActionsImage.WindowsLatest,
+                GitHubActionsImage.UbuntuLatest,
+                GitHubActionsImage.MacOsLatest,
                 InvokedTargets = new[] { nameof(Test), nameof(Pack) },
                 OnPushBranches = new[] { "master", "dev" },
                 PublishArtifacts = true)]
