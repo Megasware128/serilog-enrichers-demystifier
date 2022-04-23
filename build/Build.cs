@@ -20,7 +20,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
                 GitHubActionsImage.UbuntuLatest,
                 GitHubActionsImage.MacOsLatest,
                 InvokedTargets = new[] { nameof(Test), nameof(Pack) },
-                OnPushBranches = new[] { "main", "dev" },
+                On = new[] { GitHubActionsTrigger.Push, GitHubActionsTrigger.PullRequest, GitHubActionsTrigger.WorkflowDispatch },
                 PublishArtifacts = true)]
 [GitHubActions("publish", GitHubActionsImage.UbuntuLatest, InvokedTargets = new[] { nameof(Pack), nameof(Publish) }, OnPushTags = new[] { "v*" }, ImportSecrets = new[] { nameof(NuGetApiKey) })]
 class Build : NukeBuild

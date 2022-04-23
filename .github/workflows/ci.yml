@@ -16,11 +16,7 @@
 
 name: ci
 
-on:
-  push:
-    branches:
-      - main
-      - dev
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   windows-latest:
