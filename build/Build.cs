@@ -90,6 +90,7 @@ class Build : NukeBuild
                 .SetProjectFile(Solution.test.Serilog_Enrichers_Demystifier_Tests)
                 .SetConfiguration(Configuration)
                 .When(IsServerBuild, ss => ss.SetFramework("net6.0"))
+                .When(IsServerBuild && EnvironmentInfo.IsWin, ss => ss.SetFramework("net4.8"))
                 .EnableNoBuild());
         });
 
