@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,10 +8,10 @@
     <NukeScriptDirectory>..</NukeScriptDirectory>
     <NukeTelemetryVersion>1</NukeTelemetryVersion>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Nuke.Common" Version="5.3.0" />
-    <PackageDownload Include="GitVersion.Tool" Version="[5.8.1]" />
+    <PackageReference Include="Nuke.Common" Version="6.0.2" />
+    <PackageDownload Include="GitVersion.Tool" Version="[5.10.1]" />
+    <PackageDownload Include="NuKeeper" Version="[0.35.0]" />
+    <PackageDownload Include="upgrade-assistant" Version="[0.3.310801]" />
   </ItemGroup>
-
 </Project>

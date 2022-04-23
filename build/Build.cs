@@ -6,6 +6,7 @@ using Nuke.Common.Execution;
 using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
+using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Utilities.Collections;
@@ -18,6 +19,8 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 [AppVeyor(AppVeyorImage.VisualStudio2019, BranchesOnly = new[] { "main", "dev" }, InvokedTargets = new[] { nameof(Test) })]
 [GitHubActions("ci",
                 GitHubActionsImage.WindowsLatest,
+                GitHubActionsImage.UbuntuLatest,
+                GitHubActionsImage.MacOsLatest,
                 InvokedTargets = new[] { nameof(Test), nameof(Pack) },
                 OnPushBranches = new[] { "main", "dev" },
                 PublishArtifacts = true)]
@@ -40,7 +43,11 @@ class Build : NukeBuild
 
     [Solution(GenerateProjects = true)] readonly Solution Solution;
     [GitRepository] readonly GitRepository GitRepository;
-    [GitVersion(Framework = "net5.0")] readonly GitVersion GitVersion;
+    [GitVersion(Framework = "net6.0")] readonly GitVersion GitVersion;
+
+    [PathExecutable("nuke.exe")] readonly Tool Nuke;
+    [PackageExecutable("NuKeeper", "NuKeeper.dll", Framework = "net5.0")] readonly Tool NuKeeper;
+    [PackageExecutable("upgrade-assistant", "Microsoft.DotNet.UpgradeAssistant.Cli.dll", Framework = "net6.0")] readonly Tool UpgradeAssistant;
 
     AbsolutePath SourceDirectory => RootDirectory / "src";
     AbsolutePath TestsDirectory => RootDirectory / "test";
@@ -82,6 +89,8 @@ class Build : NukeBuild
             DotNetTest(s => s
                 .SetProjectFile(Solution.test.Serilog_Enrichers_Demystifier_Tests)
                 .SetConfiguration(Configuration)
+                .When(IsServerBuild, ss => ss.SetFramework("net6.0"))
+                .When(IsServerBuild && EnvironmentInfo.IsWin, ss => ss.SetFramework("net4.8"))
                 .EnableNoBuild());
         });
 
@@ -109,5 +118,13 @@ class Build : NukeBuild
                 .SetTargetPath(ArtifactsDirectory / "*.nupkg")
                 .SetSource(NuGetSource)
                 .SetApiKey(NuGetApiKey));
+        });
+
+    Target Update => _ => _
+        .Executes(() =>
+        {
+            Nuke(":update");
+            UpgradeAssistant($"upgrade {Solution} -e * --skip-backup --non-interactive");
+            NuKeeper("update -m 10 -a 0");
         });
 }
