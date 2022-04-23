@@ -41,7 +41,7 @@ class Build : NukeBuild
 
     [Solution(GenerateProjects = true)] readonly Solution Solution;
     [GitRepository] readonly GitRepository GitRepository;
-    [GitVersion(Framework = "net5.0")] readonly GitVersion GitVersion;
+    [GitVersion(Framework = "net6.0")] readonly GitVersion GitVersion;
 
     [PathExecutable("nuke.exe")] readonly Tool Nuke;
     [PackageExecutable("NuKeeper", "NuKeeper.dll", Framework = "net5.0")] readonly Tool NuKeeper;
@@ -87,6 +87,7 @@ class Build : NukeBuild
             DotNetTest(s => s
                 .SetProjectFile(Solution.test.Serilog_Enrichers_Demystifier_Tests)
                 .SetConfiguration(Configuration)
+                .When(IsServerBuild, ss => ss.SetFramework("net6.0"))
                 .EnableNoBuild());
         });
 
