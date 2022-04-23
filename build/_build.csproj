@@ -10,8 +10,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Nuke.Common" Version="6.0.2" />
-    <PackageDownload Include="GitVersion.Tool" Version="[5.8.1]" />
+    <PackageDownload Include="GitVersion.Tool" Version="[5.10.1]" />
     <PackageDownload Include="NuKeeper" Version="[0.35.0]" />
-    <PackageDownload Include="upgrade-assistant" Version="[0.3.261602]" />
+    <PackageDownload Include="upgrade-assistant" Version="[0.3.310801]" />
   </ItemGroup>
 </Project>
