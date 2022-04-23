@@ -1,6 +1,5 @@
 using Nuke.Common;
 using Nuke.Common.CI;
-using Nuke.Common.CI.AppVeyor;
 using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.Execution;
 using Nuke.Common.Git;
@@ -16,7 +15,6 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
-[AppVeyor(AppVeyorImage.VisualStudio2019, BranchesOnly = new[] { "main", "dev" }, InvokedTargets = new[] { nameof(Test) })]
 [GitHubActions("ci",
                 GitHubActionsImage.WindowsLatest,
                 GitHubActionsImage.UbuntuLatest,
