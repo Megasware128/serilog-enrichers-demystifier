@@ -17,7 +17,7 @@ try
 catch (Exception ex)
 {
     Log.Error(ex, "Unhandled exception");
-    return 1;
+    return default;
 }
 
 [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]

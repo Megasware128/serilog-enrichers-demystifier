@@ -82,6 +82,7 @@ class Build : NukeBuild
 
     Target Test => _ => _
         .DependsOn(Compile)
+        .Triggers(TestApp)
         .Executes(() =>
         {
             DotNetTest(s => s
@@ -90,6 +91,19 @@ class Build : NukeBuild
                 .When(IsServerBuild, ss => ss.SetFramework("net6.0"))
                 .When(IsServerBuild && EnvironmentInfo.IsWin, ss => ss.SetFramework("net4.8"))
                 .EnableNoBuild());
+        });
+
+    Target TestApp => _ => _
+        .DependsOn(Compile)
+        .Executes(() =>
+        {
+            var output = DotNetRun(s => s
+                .SetProjectFile(Solution.example.DemystifyExample)
+                .SetConfiguration(Configuration)
+                .EnableNoBuild())
+            .StdToText();
+
+            Assert.True(output.Contains("async Task<int> Program.<Main>$(string[] args)+FailingMethodAsync"));
         });
 
     Target Pack => _ => _
