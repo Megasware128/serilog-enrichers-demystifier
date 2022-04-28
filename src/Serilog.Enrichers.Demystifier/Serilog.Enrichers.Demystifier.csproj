@@ -12,7 +12,7 @@
     <PackageTags>serilog;demystifier</PackageTags>
     <PackageIcon>serilog-community-nuget.png</PackageIcon>
     <PackageProject>https://github.com/Megasware128/serilog-enrichers-demystifier</PackageProject>
-    <PackageLicense>http://www.apache.org/licenses/LICENSE-2.0</PackageLicense>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <TreatSpecificWarningsAsErrors />
