@@ -108,6 +108,7 @@ class Build : NukeBuild
 
     Target Pack => _ => _
         .DependsOn(Compile)
+        .After(Test, TestApp)
         .Produces(ArtifactsDirectory / "*.nupkg")
         .Executes(() =>
         {
