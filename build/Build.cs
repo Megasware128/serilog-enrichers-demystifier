@@ -1,3 +1,4 @@
+using System;
 using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.CI.GitHubActions;
@@ -88,8 +89,9 @@ class Build : NukeBuild
             DotNetTest(s => s
                 .SetProjectFile(Solution.test.Serilog_Enrichers_Demystifier_Tests)
                 .SetConfiguration(Configuration)
-                .When(IsServerBuild, ss => ss.SetFramework("net6.0"))
-                .When(IsServerBuild && EnvironmentInfo.IsWin, ss => ss.SetFramework("net4.8"))
+                .When(IsServerBuild && !EnvironmentInfo.IsArm64, ss => ss.SetFramework("net6.0"))
+                .When(IsServerBuild, ss => ss.SetFramework("net8.0"))
+                .When(IsServerBuild && EnvironmentInfo.IsWin, ss => ss.SetFramework("net4.8.1"))
                 .EnableNoBuild());
         });
 
